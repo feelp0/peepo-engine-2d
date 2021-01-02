@@ -1,2 +1,2 @@
 # peepo-engine-2d
-A dumb 2D engine made in C with SDL
+My first dumb attempt creating a 2D engine in C with SDL
