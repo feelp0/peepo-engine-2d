@@ -8,5 +8,5 @@ Atm peepo-engine-2d have:
   -Scene managment;  
   -UI and UI events (atm OnPointerEnter, OnPointerExit, OnClick);  
   
-# Can i use this?
-Why sould you? Well if you really want of course! but I'm pretty sure there are better custom engine around :)
+# Can you use this?
+Why should you? Well if you really want of course! but I'm pretty sure there are better custom engine around :)
