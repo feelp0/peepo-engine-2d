@@ -56,12 +56,16 @@ int init(game* game){
 }
 
 void gameLoop(game* game){
+
+    //TEST PLAYER
     gameObject* player = gameObject_new(game);
     component* c = gameObject_create_component(player);
-    sprite_new(c, "resources/test.png", 0, 0);
+    //sprite_new(c, "resources/assets/player/myplane_strip3.png", 0, 0);
+    sprite_new_animated(c, "resources/assets/player/myplane_strip3.png", 3, 0.1f);
     c = gameObject_create_component(player);
-    player_new(c, 20, 2, 4);
+    player_new(c, 200, 2, 4);
     vector_add(game->gameObjects, player);
+
     while(game->running){
         SDL_Event event;
         while(SDL_PollEvent(&event)){
@@ -72,7 +76,6 @@ void gameLoop(game* game){
         }
         tick(game);
         clear(game);
-        input(game);
         update(game);
         draw(game);
     }
@@ -107,15 +110,4 @@ void update(game* game){
 
 void draw(game* game){
     SDL_RenderPresent(game->__renderer);
-}
-
-void input(game* game){
-    //vkey = SDL_GetKeyboardState(NULL);
-    // if(vkey[SDL_SCANCODE_LEFT]){
-    // }
-    // if(vkey[SDL_SCANCODE_RIGHT]){
-    // }
-    // int mouse_x;
-    // int mouse_y;
-    // Uint32 mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
 }
