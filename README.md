@@ -1,4 +1,4 @@
-# peepo-engine-2d
+# Peepo Engine 2D -Enhance your Peepo-
 My first dumb attempt creating a 2D engine in C with SDL
 
 # What can this bad boi do?
