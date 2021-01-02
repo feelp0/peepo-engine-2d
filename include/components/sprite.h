@@ -10,14 +10,15 @@ struct sprite{
     SDL_Rect dst_rect;
     SDL_Rect src_rect;
     transform* transform;
+    int z_index;
     int frames;
     int curr_frame;
     float animationSpeed;
     float __animationTimer;
 };typedef struct sprite sprite;
 
-void sprite_new(component* comp, const char* path, int w, int h);
-void sprite_new_animated(component* comp, const char* path, int frames, float animationSpeed);
+void sprite_new(component* comp, const char* path, int z_index, int w, int h);
+void sprite_new_animated(component* comp, const char* path, int z_index, int frames, float animationSpeed);
 void sprite_destroy(sprite* r);
 void sprite_init();
 void sprite_update(component* c);

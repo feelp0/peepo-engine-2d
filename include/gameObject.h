@@ -4,6 +4,7 @@
 
 enum comp_type{
     SPRITE_T,
+    BUTTON_T,
     PLAYER_T,
     TRANSFORM_T
 }; typedef enum comp_type component_type;
@@ -11,7 +12,7 @@ enum comp_type{
 typedef struct {
     vec2 pos;
     vector* components;
-    game* __game;
+    scene* __scene;
 } gameObject;
 
 struct component{
@@ -22,8 +23,8 @@ struct component{
     void(*update)(struct component*);
 } ; typedef struct component component;
 
-gameObject* gameObject_new(game* game);
-gameObject* gameObject_new_default(game* game);
+gameObject* gameObject_new(scene* game);
+gameObject* gameObject_new_default(scene* game);
 void gameObject_destroy(gameObject* go);
 component* gameObject_create_component(gameObject* go);
 void* gameObject_get_component(gameObject* go, component_type ct);

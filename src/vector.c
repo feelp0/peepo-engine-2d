@@ -83,3 +83,62 @@ void vector_destroy(vector* vec){
     free(vec->__items);
     free(vec);
 }
+
+void __vector_quick_recurs(vector* vector,int (*comparator)(void*,void*),uint start_index,uint end_index){
+    if(start_index >= end_index) 
+        return;  // se si incrociano ritorno 
+    int pivot_index = __vector_quick_partition(vector, comparator, start_index, end_index); //nonostante gli indici so positivi, 
+                                                                                                //accettiamo anche indici negativi per non bloccare la funzione dopo
+    __vector_quick_recurs(vector, comparator, start_index, pivot_index-1);
+    __vector_quick_recurs(vector, comparator, pivot_index +1 , end_index);
+
+}
+
+void vector_quick(vector* vector, int (*comparator)(void*,void*)){
+    __vector_quick_recurs(vector, comparator, 0, vector->__count -1);
+}
+
+
+int __vector_quick_partition(vector* vector,int (*comparator)(void*,void*),uint start_index,uint end_index){
+
+    int pivot_index = start_index; 
+    int left_index = start_index;
+    int right_index = end_index;
+
+    void* item  = NULL;
+    void* pivot = NULL;
+    while( left_index<right_index){
+
+        boolean itemIsGTE = true;
+        while(itemIsGTE && pivot_index<right_index){
+
+            item = vector_at(vector, right_index);
+            pivot = vector_at(vector, pivot_index);
+            itemIsGTE = comparator(item, pivot) != -1;
+            if(itemIsGTE){
+                right_index--;
+            }
+        }
+        if(pivot_index != right_index){
+            vector->__items[pivot_index] = item;
+            vector->__items[right_index] = pivot;
+            pivot_index = right_index;
+        }
+
+        boolean itemIsLTE = true;
+        while(itemIsLTE && pivot_index > left_index){
+            item = vector_at(vector,left_index);
+            pivot = vector_at(vector, pivot_index);
+            itemIsLTE = comparator(item, pivot) != 1;
+            if(itemIsLTE){
+                left_index++;
+            }
+        }
+        if(pivot_index != left_index){
+            vector->__items[pivot_index] = item;
+            vector->__items[left_index] = pivot;
+            pivot_index = left_index;
+        }
+    }
+    return pivot_index;
+}

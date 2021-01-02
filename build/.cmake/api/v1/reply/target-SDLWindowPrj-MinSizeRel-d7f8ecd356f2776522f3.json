@@ -59,27 +59,27 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/filip/Desktop/peepo2d/cmake/sdl2/include"
+					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/cmake/sdl2/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/filip/Desktop/peepo2d/cmake/sdl2_image/include"
+					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/cmake/sdl2_image/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/filip/Desktop/peepo2d/cmake/sdl2_ttf/include"
+					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/cmake/sdl2_ttf/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/filip/Desktop/peepo2d/cmake/sdl2_mixer/include"
+					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/cmake/sdl2_mixer/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/filip/Desktop/peepo2d/include"
+					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/filip/Desktop/peepo2d/include/components"
+					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/include/components"
 				}
 			],
 			"language" : "C",
@@ -93,7 +93,10 @@
 				5,
 				6,
 				7,
-				8
+				8,
+				9,
+				10,
+				11
 			]
 		}
 	],
@@ -164,7 +167,10 @@
 				5,
 				6,
 				7,
-				8
+				8,
+				9,
+				10,
+				11
 			]
 		}
 	],
@@ -173,7 +179,25 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/components/button.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/components/gfx_manager.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/components/playerBehaviour.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/components/scene.c",
 			"sourceGroupIndex" : 0
 		},
 		{

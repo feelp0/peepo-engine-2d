@@ -19,5 +19,6 @@ void* vector_at(vector* vec, uint index);
 void vector_foreach(vector* vec, void (*action)(void* p));
 void vector_destroy(vector* vec);
 
+void vector_quick(vector* vector, int (*comparator)(void*,void*));
 
 #endif

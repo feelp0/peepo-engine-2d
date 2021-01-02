@@ -7,20 +7,23 @@
 #include "vector.h"
 #include "common.h"
 //#include "gameObject.h"
+#include "scene.h"
 
-typedef struct{
+struct game{
     int width;
     int height;
     int __last_count;
     int __curr_count;
     int __frequency;
+    int mouseState;
     float delta_time;
-    vector* gameObjects;
+    vector* scenes;
+    scene* current_scene;
     SDL_Window* __window;
     SDL_Renderer* __renderer;
     Uint8* vkey;
     boolean running;
-} game;
+}; typedef struct game game; 
 
 game* game_new(int width, int height);
 //void add_gameObject(game* game, gameObject* go);

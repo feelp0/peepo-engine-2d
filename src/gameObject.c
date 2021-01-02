@@ -1,27 +1,27 @@
 #include "gameObject.h"
 
-gameObject* gameObject_new(game* game){
+gameObject* gameObject_new(scene* scene){
     gameObject* go = (gameObject*)malloc(sizeof(gameObject));
     go->components = vector_new();
-    go->__game = game;
+    go->__scene = scene;
     component* comp = __component_new(go);
     transform_new(comp);
     vector_add(go->components, comp);
     return go;
 }
 
-gameObject* gameObject_new_default(game* game){
+gameObject* gameObject_new_default(scene* scene){
     gameObject* go = (gameObject*)malloc(sizeof(gameObject));
     //go->pos = vec2_new(x, y);
     go->components = vector_new();
     //transform* t;
-    go->__game = game;
+    go->__scene = scene;
     return go;
 }
 
 void gameObject_destroy(gameObject* go){
     vector_destroy(go->components);
-    go->__game = NULL;
+    go->__scene = NULL;
     free(go);   
 }
 

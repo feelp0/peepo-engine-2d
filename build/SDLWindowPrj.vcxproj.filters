@@ -1,40 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\components\playerBehaviour.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\button.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\components\sprite.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\gfx_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\components\transform.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\playerBehaviour.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\game.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\scene.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\gameObject.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\sprite.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\list.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\transform.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\main.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\game.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\vec2.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\gameObject.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\peepo2d\src\vector.c">
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\vec2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\vector.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\filip\Desktop\peepo2d\CMakelists.txt" />
+    <CustomBuild Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\CMakelists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{7A4DC260-C709-385E-8FAC-D2470BDEEC71}</UniqueIdentifier>
+      <UniqueIdentifier>{0FB136C8-60E1-30B6-8790-25B93E4CD9A3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

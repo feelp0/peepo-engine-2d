@@ -1,20 +1,18 @@
 #include "gameObject.h"
 #include "components.h"
+#include "gfx_manager.h"
 
 game* game_new(int width, int height){
     game* g = malloc(sizeof(game));
     g->width = width;
     g->height = height;
-    g->gameObjects = vector_new();
+    g->scenes = vector_new();
     g->running = true;
+    g->mouseState = 0;
     g->__curr_count = (int)SDL_GetPerformanceCounter();
     g->__last_count = g->__curr_count;
     init(g);
     return g;
-}
-
-void add_gameObject(game* game, gameObject* go){
-    vector_add(game->gameObjects, go);
 }
 
 int init(game* game){
@@ -55,23 +53,79 @@ int init(game* game){
     return 0;
 }
 
+void btn_play_click(component* comp){
+    printf("btn Play Click");
+}
+void btn_play_enter(component* comp){
+    printf("btn play enter");
+}
+void btn_play_exit(component* comp){
+    printf("btn play exit");
+}
+
+void initMainMenu(game* game){
+    //create main menu
+    gameObject* go = gameObject_new(game->current_scene);
+    component* c1 = gameObject_create_component(go);
+    sprite_new(c1, "resources/assets/ui/Title.png", 0, 0, 0);
+    vector_add(game->current_scene->gameObjects, go);
+    //play BTN
+    go = gameObject_new(game->current_scene);
+    c1 = gameObject_create_component(go);
+    sprite_new(c1, "resources/assets/ui/start.png", 0, 150, 75);
+    transform* t = gameObject_get_component(go, TRANSFORM_T);
+    t->pos.x = 320;
+    t->pos.y = 230;
+    //btncomp
+    c1 = gameObject_create_component(go);
+    button_new(c1, btn_play_click, btn_play_enter, btn_play_exit);
+    vector_add(game->current_scene->gameObjects, go);
+
+    game->current_scene->started = true;
+
+    //when i've added all the sprites order them by z-index 
+    //vector_quick(game->current_scene->draw_mgr->drawables, z_buffer); //TODO: this throws a stack-overflow ex :c 
+}
+
 void gameLoop(game* game){
 
+    scene* menu = scene_new(game, initMainMenu);
+    menu->index = 0; //main menu
+    vector_add(game->scenes, menu);
+    game->current_scene = menu;
+
     //TEST PLAYER
-    gameObject* player = gameObject_new(game);
-    component* c = gameObject_create_component(player);
-    //sprite_new(c, "resources/assets/player/myplane_strip3.png", 0, 0);
-    sprite_new_animated(c, "resources/assets/player/myplane_strip3.png", 3, 0.1f);
-    c = gameObject_create_component(player);
-    player_new(c, 200, 2, 4);
-    vector_add(game->gameObjects, player);
+    // gameObject* player = gameObject_new(game->current_scene);
+    // component* c = gameObject_create_component(player);
+    // //sprite_new(c, "resources/assets/player/myplane_strip3.png", 0, 0);
+    // sprite_new_animated(c, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
+    // c = gameObject_create_component(player);
+    // player_new(c, 200, 2, 4);
+    // vector_add(game->current_scene->gameObjects, player);
 
     while(game->running){
+        if(game->current_scene->started == false){
+            game->current_scene->init(game);
+        }
         SDL_Event event;
         while(SDL_PollEvent(&event)){
-            if(event.type == SDL_QUIT){
-                game->running = false;
+            switch (event.type)
+            {
+                case SDL_QUIT:
+                    game->running = false;
                 break;
+                case SDL_MOUSEBUTTONDOWN:
+                    if(event.button.button == SDL_BUTTON_LEFT){
+                        game->mouseState = 1;
+                    }
+                break;
+                case SDL_MOUSEBUTTONUP:
+                    if(event.button.button == SDL_BUTTON_LEFT){
+                        game->mouseState = 0;
+                    }
+                break;
+                default:
+                    break;
             }
         }
         tick(game);
@@ -100,14 +154,10 @@ void clear(game* game){
 }
 
 void update(game* game){
-    for (uint i = 0; i < vector_size(game->gameObjects); i++)
-    {
-        gameObject* go = vector_at(game->gameObjects, i);
-        gameObject_update(go);
-    }
-    
+    scene_update(game->current_scene);
 }
 
 void draw(game* game){
+    scene_draw(game->current_scene);
     SDL_RenderPresent(game->__renderer);
 }

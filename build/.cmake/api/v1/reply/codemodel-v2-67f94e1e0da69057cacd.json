@@ -42,21 +42,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Debug-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-Debug-a921ee3fea088a395836.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-Debug-12ca7b841aa11d373871.json",
+					"jsonFile" : "target-SDLWindowPrj-Debug-02c7847841899eea4940.json",
 					"name" : "SDLWindowPrj",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Debug-f90b8319679834c00e95.json",
+					"jsonFile" : "target-ZERO_CHECK-Debug-4a34401190380c582081.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -103,21 +103,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Release-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-Release-a921ee3fea088a395836.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-Release-31cf1a6783654a923722.json",
+					"jsonFile" : "target-SDLWindowPrj-Release-ad84a390dbd56a7ca51d.json",
 					"name" : "SDLWindowPrj",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Release-f90b8319679834c00e95.json",
+					"jsonFile" : "target-ZERO_CHECK-Release-4a34401190380c582081.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -164,21 +164,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-MinSizeRel-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-a921ee3fea088a395836.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-MinSizeRel-7e30d9a804ab2a2fd6ec.json",
+					"jsonFile" : "target-SDLWindowPrj-MinSizeRel-d7f8ecd356f2776522f3.json",
 					"name" : "SDLWindowPrj",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-f90b8319679834c00e95.json",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-4a34401190380c582081.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -225,21 +225,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-a921ee3fea088a395836.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-RelWithDebInfo-51590ce20392a61b3b3f.json",
+					"jsonFile" : "target-SDLWindowPrj-RelWithDebInfo-6d6323fde946c6958fe4.json",
 					"name" : "SDLWindowPrj",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-f90b8319679834c00e95.json",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-4a34401190380c582081.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -249,8 +249,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/filip/Desktop/peepo2d/build",
-		"source" : "C:/Users/filip/Desktop/peepo2d"
+		"build" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build",
+		"source" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d"
 	},
 	"version" : 
 	{

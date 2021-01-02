@@ -1,6 +1,6 @@
-^C:\USERS\FILIP\DESKTOP\PEEPO2D\CMAKELISTS.TXT
+^C:\USERS\FILIP\DESKTOP\3AIV\PEEPO-ENGINE2D\PEEPO-ENGINE-2D\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/filip/Desktop/peepo2d -BC:/Users/filip/Desktop/peepo2d/build --check-stamp-file C:/Users/filip/Desktop/peepo2d/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d -BC:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build --check-stamp-file C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
