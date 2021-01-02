@@ -7,6 +7,7 @@ Atm peepo-engine-2d have:
   -Single image or animation (from a sprite sheet) rendering;  
   -Scene managment;  
   -UI and UI events (atm OnPointerEnter, OnPointerExit, OnClick);  
+  -Bugs  
   
 # Can you use this?
 Why should you? Well if you really want of course! but I'm pretty sure there are better custom engine around :)
