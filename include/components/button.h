@@ -20,5 +20,7 @@ void button_new(gameObject* go, void (*onClick)(struct component*), void (*onCli
 void button_update(component* c1);
 void button_init(component* comp);
 void button_destroy(component* comp);
+void button_on_enable(component* comp);
+void button_on_disable(component* comp);
 
 #endif

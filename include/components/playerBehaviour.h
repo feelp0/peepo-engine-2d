@@ -14,6 +14,8 @@ void player_new(gameObject* go, float speed, float shootCooldown, int maxHealth)
 void player_init(component* comp);
 void player_update(component* c);
 void player_destroy(component* comp);
+void player_on_enable(component* comp);
+void player_on_disable(component* comp);
 
 
 #endif

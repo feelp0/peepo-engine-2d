@@ -13,6 +13,8 @@ transform* transform_new_with_coord(gameObject* go, float x, float y){
     c->init = transform_init;
     c->update = transform_update;
     c->destroy = transform_destroy;
+    c->on_enable = transform_on_enable;
+    c->on_disable = transform_on_disable;
     return t;
 }
 
@@ -27,4 +29,12 @@ void transform_update(component* c){
 void transform_destroy(component* comp){
     transform* t = (transform*)comp->data;
     free(t);
+}
+
+void transform_on_enable(component* comp){
+
+}
+
+void transform_on_disable(component* comp){
+
 }

@@ -38,13 +38,19 @@ boolean gameObject_is_active(gameObject* go){
 void gameObject_set_active(gameObject* go, boolean state){
     go->__is_active = state;
     //call OnEnable/OnDisable
+    for (uint i = 0; i < vector_size(go->components); i++)
+    {
+        component* c = (component*)vector_at(go->components, i);
+        if(state == true) c->on_enable(c);
+        if(state == false) c->on_disable(c);
+    }
+    
 }
 
 void gameObject_update(gameObject* go){
     for (uint i = 0; i < vector_size(go->components); i++)
     {
         component* comp = (component*)vector_at(go->components, i);
-        //comp->update(go->__game->delta_time);
         comp->update(comp);
     }
 }

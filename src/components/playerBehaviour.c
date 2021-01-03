@@ -12,6 +12,8 @@ void player_new(gameObject* go, float speed, float shootCooldown, int maxHealth)
     c->init = player_init;
     c->update = player_update;
     c->destroy = player_destroy;
+    c->on_enable = player_on_enable;
+    c->on_disable = player_on_disable;
     c->type = PLAYER_T;
 }
 
@@ -40,9 +42,20 @@ void player_update(component* c){
     if(state[SDL_SCANCODE_DOWN]){
         t->pos.y += 1.f * p->__speed * dt;
     }
+    if(state[SDL_SCANCODE_SPACE] && gameObject_is_active(c->owner)){
+        gameObject_set_active(c->owner, false);
+    }
 }
 
 void player_destroy(component* comp){
     playerBehaviour* p = (playerBehaviour*)comp->data;
     free(p); 
+}
+
+void player_on_enable(component* comp){
+
+}
+
+void player_on_disable(component* comp){
+
 }

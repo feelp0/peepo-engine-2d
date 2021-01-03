@@ -1,8 +1,9 @@
 #include "gfx_manager.h"
 
-gfxmgr* gfxmgr_new(){
+gfxmgr* gfxmgr_new(SDL_Renderer* renderer){
     gfxmgr* g = (gfxmgr*)malloc(sizeof(gfxmgr));
     g->drawables = vector_new();
+    g->game_renderer = renderer;
     return g;
 }
 
@@ -36,9 +37,10 @@ void gfxmgr_destroy(gfxmgr* gfxmgr){
 }
 
 void gfxmgr_draw(gfxmgr* gfxmgr){
-    // for (uint i = 0; i < vector_size(gfxmgr->drawables); i++)
-    // {
-    //     sprite* s = vector_at(gfxmgrs->drawables, i);
-    //     SDL_RenderCopy(s->game_renderer, s->texture, s->frames == 0 ? NULL : &s->src_rect, &s->dst_rect);
-    // }
+    for (uint i = 0; i < vector_size(gfxmgr->drawables); i++)
+    {
+        sprite* s = vector_at(gfxmgr->drawables, i);
+        if(s->__active)
+            SDL_RenderCopy(gfxmgr->game_renderer, s->texture, s->frames == 0 ? NULL : &s->src_rect, &s->dst_rect);
+    }
 }

@@ -16,11 +16,13 @@ void button_new(gameObject* go, void (*onClick)(struct component*), void (*onCli
     b->__inside = false;
     b->__clicked = false;
 
+    c->init = button_init;
     c->destroy = button_destroy;
     c->update = button_update;
+    c->on_enable = button_on_enable;
+    c->on_disable = button_on_disable;
     c->type = BUTTON_T;
     c->data = b;
-    c->init = button_init;
 }
 
 void button_init(component* comp){
@@ -58,8 +60,15 @@ void button_update(component* c1){
     }
 }
 
-
 void button_destroy(component* comp){
     button* b = (button*)comp->data;
     free(b);
+}
+
+void button_on_enable(component* comp){
+
+}
+
+void button_on_disable(component* comp){
+    
 }

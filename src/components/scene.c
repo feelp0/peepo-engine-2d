@@ -10,7 +10,7 @@ scene* scene_new(game* game, const char* name, void(*init)(struct game*)){
     s->__timescale = 1;
     s->init = init;
     s->started = false;
-    s->draw_mgr = gfxmgr_new();
+    s->draw_mgr = gfxmgr_new(s->__game->__renderer);
     s->index = vector_size(s->__game->scenes);
     vector_add(s->__game->scenes, s);
     //s->index = vector_size(game->scenes);
@@ -48,16 +48,13 @@ void scene_update(scene* scene){
     for (uint i = 0; i < vector_size(scene->gameObjects); i++)
     {
         gameObject* go = vector_at(scene->gameObjects, i);
-        gameObject_update(go);
+        if(gameObject_is_active(go))
+            gameObject_update(go);
     }
 }
 
 void scene_draw(scene* scene){
-    for (uint i = 0; i < vector_size(scene->draw_mgr->drawables); i++)
-    {
-        sprite* s = vector_at(scene->draw_mgr->drawables, i);
-        SDL_RenderCopy(s->game_renderer, s->texture, s->frames == 0 ? NULL : &s->src_rect, &s->dst_rect);
-    }
+    gfxmgr_draw(scene->draw_mgr);
 }
 
 void scene_destroy(scene* scene){

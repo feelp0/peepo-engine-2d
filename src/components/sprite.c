@@ -6,11 +6,10 @@ sprite* __sprite_create_def(gameObject* go, const char* path, int z_index){
     component* comp = __component_new(go);
     s->texture = NULL;
     s->z_index = z_index;
-    s->game_renderer = comp->owner->__scene->__game->__renderer;
     SDL_Surface* surf = IMG_Load(path);
     s->surf = surf;
-
-    s->texture = IMG_LoadTexture(s->game_renderer, path);
+    s->__active = true;
+    s->texture = IMG_LoadTexture(go->__scene->draw_mgr->game_renderer, path);
     transform* t = (transform*)gameObject_get_component(comp->owner, TRANSFORM_T);
     s->transform = t;
 
@@ -19,6 +18,8 @@ sprite* __sprite_create_def(gameObject* go, const char* path, int z_index){
     comp->update = sprite_update;
     comp->destroy = sprite_destroy;
     comp->type = SPRITE_T;
+    comp->on_enable = sprite_enable;
+    comp->on_disable = sprite_disable;
 
     if(comp->owner->__scene->started)
         add_runtime_drawable(comp->owner->__scene->draw_mgr, s);
@@ -94,10 +95,12 @@ void sprite_recolor(sprite* s, uint r, uint g, uint b){
     SDL_SetTextureColorMod(s->texture, r, g, b);
 }
 
-void __sprite_enable(component* comp){
-
+void sprite_enable(component* comp){
+    sprite* s = (sprite*)comp->data;
+    s->__active = true;
 }
 
-void __sprite_disable(component* comp){
-    
+void sprite_disable(component* comp){
+    sprite* s = (sprite*)comp->data;
+    s->__active = false;
 }

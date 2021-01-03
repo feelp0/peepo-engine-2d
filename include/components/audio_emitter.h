@@ -20,5 +20,7 @@ void audio_emitter_new(gameObject* go, const char* path, int loops, audio_extens
 void audio_destroy(component* comp);
 void audio_init(component* comp);
 void audio_update(component* comp);
+void audio_on_enable(component* comp);
+void audio_on_disable(component* comp);
 
 #endif

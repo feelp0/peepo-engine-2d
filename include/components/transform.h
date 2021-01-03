@@ -12,5 +12,7 @@ transform* transform_new_with_coord(gameObject* go, float x, float y);
 void transform_update(component* c); //lallero
 void transform_init(component* comp);
 void transform_destroy(component* comp);
+void transform_on_enable(component* comp);
+void transform_on_disable(component* comp);
 
 #endif

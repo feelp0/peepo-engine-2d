@@ -25,6 +25,8 @@ void audio_emitter_new(gameObject* go, const char* path, int loops, audio_extens
     comp->init = audio_init;
     comp->update = audio_update;
     comp->destroy = audio_destroy;
+    comp->on_enable = audio_on_enable;
+    comp->on_disable = audio_on_disable;
     comp->type = AUDIO_EMITTER_T;
     comp->data = a;
 }
@@ -58,4 +60,12 @@ void audio_update(component* comp){
                 break;
         }
     }
+}
+
+void audio_on_enable(component* comp){
+
+}
+
+void audio_on_disable(component* comp){
+
 }
