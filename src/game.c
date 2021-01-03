@@ -11,6 +11,7 @@ game* game_new(int width, int height){
     g->mouseState = 0;
     g->__curr_count = (int)SDL_GetPerformanceCounter();
     g->__last_count = g->__curr_count;
+    g->next_scene = NULL;
     init(g);
     return g;
 }
@@ -68,6 +69,7 @@ void btn_play_click_release(component* comp){
     sprite_scale(s, 10);
     sprite_recolor(s, 255,255,255);
     //do something
+    comp->owner->__scene->__game->next_scene = vector_at(comp->owner->__scene->__game->scenes, 1); //load game scene;
 }
 
 void btn_quit_click_release(component* comp){
@@ -120,23 +122,26 @@ void initMainMenu(game* game){
     //vector_quick(game->current_scene->draw_mgr->drawables, z_buffer); //TODO: this throws a stack-overflow ex :c 
 }
 
+void initGameScene(game* game){
+    //TEST PLAYER
+    gameObject* player = gameObject_new(game->current_scene);
+    sprite_new_animated(player, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
+    player_new(player, 200, 2, 4);
+    game->current_scene->started = true;
+}
+
 void gameLoop(game* game){
 
-    scene* menu = scene_new(game, initMainMenu);
-    menu->index = 0; //main menu
-    vector_add(game->scenes, menu);
-    game->current_scene = menu;
+    scene* menu = scene_new(game, "main-menu", initMainMenu);
 
-    //TEST PLAYER
-    // gameObject* player = gameObject_new(game->current_scene);
-    // component* c = gameObject_create_component(player);
-    // //sprite_new(c, "resources/assets/player/myplane_strip3.png", 0, 0);
-    // sprite_new_animated(c, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
-    // c = gameObject_create_component(player);
-    // player_new(c, 200, 2, 4);
-    // vector_add(game->current_scene->gameObjects, player);
+    scene* game_scene = scene_new(game, "game", initGameScene);
+
+    scene_set_active(menu);
 
     while(game->running){
+        if(game->current_scene != game->next_scene){
+            scene_change(game->current_scene, game->next_scene);
+        }
         if(game->current_scene->started == false){
             game->current_scene->init(game);
         }
@@ -167,8 +172,10 @@ void gameLoop(game* game){
         draw(game);
     }
 
+    scene_destroy(game->current_scene);
     SDL_DestroyWindow(game->__window);
     SDL_DestroyRenderer(game->__renderer);
+    IMG_Quit();
     SDL_Quit();
 }
 

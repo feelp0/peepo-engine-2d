@@ -11,10 +11,11 @@ void player_new(gameObject* go, float speed, float shootCooldown, int maxHealth)
     c->data = p;
     c->init = player_init;
     c->update = player_update;
+    c->destroy = player_destroy;
     c->type = PLAYER_T;
 }
 
-void player_init(){
+void player_init(component* comp){
 
 }
 
@@ -39,4 +40,9 @@ void player_update(component* c){
     if(state[SDL_SCANCODE_DOWN]){
         t->pos.y += 1.f * p->__speed * dt;
     }
+}
+
+void player_destroy(component* comp){
+    playerBehaviour* p = (playerBehaviour*)comp->data;
+    free(p); 
 }

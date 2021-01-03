@@ -19,6 +19,7 @@ struct game{
     float delta_time;
     vector* scenes;
     scene* current_scene;
+    scene* next_scene;
     SDL_Window* __window;
     SDL_Renderer* __renderer;
     Uint8* vkey;

@@ -10,6 +10,7 @@ typedef struct{
 transform* transform_new(gameObject* go);
 transform* transform_new_with_coord(gameObject* go, float x, float y);
 void transform_update(component* c); //lallero
-void transform_init();
+void transform_init(component* comp);
+void transform_destroy(component* comp);
 
 #endif

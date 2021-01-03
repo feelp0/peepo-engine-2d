@@ -73,6 +73,17 @@ void* vector_remove_at(vector* vec, uint index){
     return removedItem;
 }
 
+void* vector_remove(vector* vec, void* item){
+    for (uint i = 0; i < vec->__count; i++)
+    {
+        void* i_item = vector_at(vec, i);
+        if(i_item == item){
+            void* v = vector_remove_at(vec, i);
+            return v;
+        }
+    }
+}
+
 void* vector_at(vector* vec, uint index){
     if(index >= vec->__count) return NULL;
     return vec->__items[index];

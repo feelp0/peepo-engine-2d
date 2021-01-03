@@ -18,6 +18,7 @@ struct audio_emitter{
 
 void audio_emitter_new(gameObject* go, const char* path, int loops, audio_extension audio_ext);
 void audio_destroy(component* comp);
+void audio_init(component* comp);
 void audio_update(component* comp);
 
 #endif

@@ -5,6 +5,7 @@ gameObject* gameObject_new(scene* scene){
     go->components = vector_new();
     go->__scene = scene;
     go->__dontDestroyOnLoad = false;
+    go->__is_active = true;
     transform_new(go);
     vector_add(go->__scene->gameObjects, go);
     return go;
@@ -20,18 +21,23 @@ gameObject* gameObject_new_default(scene* scene){
 }
 
 void gameObject_destroy(gameObject* go){
+    for (uint i = 0; i < vector_size(go->components); i++)
+    {
+        component* c = vector_at(go->components, i);
+        c->destroy(c);
+    }
     vector_destroy(go->components);
     go->__scene = NULL;
     free(go);   
 }
 
-// void gameObject_add_component(gameObject* go, component* comp){
-//     vector_add(go->components, comp);
-// }
+boolean gameObject_is_active(gameObject* go){
+    return go->__is_active;
+}
 
-component* gameObject_create_component(gameObject* go){
-    component* comp = __component_new(go); // create base default component
-    return comp;
+void gameObject_set_active(gameObject* go, boolean state){
+    go->__is_active = state;
+    //call OnEnable/OnDisable
 }
 
 void gameObject_update(gameObject* go){

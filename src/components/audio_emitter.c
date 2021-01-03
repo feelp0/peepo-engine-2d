@@ -22,7 +22,9 @@ void audio_emitter_new(gameObject* go, const char* path, int loops, audio_extens
         break;
     }
 
+    comp->init = audio_init;
     comp->update = audio_update;
+    comp->destroy = audio_destroy;
     comp->type = AUDIO_EMITTER_T;
     comp->data = a;
 }
@@ -32,6 +34,10 @@ void audio_destroy(component* comp){
     Mix_FreeChunk(a->audio_wav);
     Mix_FreeMusic(a->audio_mp3);
     free(a);
+}
+
+void audio_init(component* comp){
+    
 }
 
 void audio_update(component* comp){

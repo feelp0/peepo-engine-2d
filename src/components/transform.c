@@ -6,19 +6,25 @@ transform* transform_new(gameObject* go){
 
 transform* transform_new_with_coord(gameObject* go, float x, float y){
     component* c = __component_new(go);
-    c->init = transform_init;
-    c->update = transform_update;
     transform* t = (transform*)malloc(sizeof(transform));
     t->pos = vec2_new(x, y);
     c->data = t;
     c->type = TRANSFORM_T;
+    c->init = transform_init;
+    c->update = transform_update;
+    c->destroy = transform_destroy;
     return t;
 }
 
-void transform_init(){
+void transform_init(component* comp){
     
 }
 
 void transform_update(component* c){
     
+}
+
+void transform_destroy(component* comp){
+    transform* t = (transform*)comp->data;
+    free(t);
 }

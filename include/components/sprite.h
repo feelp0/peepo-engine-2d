@@ -19,8 +19,8 @@ struct sprite{
 
 void sprite_new(gameObject* go, const char* path, int z_index, int w, int h);
 void sprite_new_animated(gameObject* go, const char* path, int z_index, int frames, float animationSpeed);
-void sprite_destroy(sprite* r);
-void sprite_init();
+void sprite_destroy(component* comp);
+void sprite_init(component* comp);
 void sprite_update(component* c);
 void sprite_scale(sprite* s, int value);
 void sprite_recolor(sprite* s, uint r, uint g, uint b);

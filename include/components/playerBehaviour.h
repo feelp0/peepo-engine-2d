@@ -11,8 +11,9 @@ struct playerBehaviour{
 }; typedef struct playerBehaviour playerBehaviour;
 
 void player_new(gameObject* go, float speed, float shootCooldown, int maxHealth);
-void player_init();
+void player_init(component* comp);
 void player_update(component* c);
+void player_destroy(component* comp);
 
 
 #endif

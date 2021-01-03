@@ -18,6 +18,7 @@ struct button{
 void button_new(gameObject* go, void (*onClick)(struct component*), void (*onClickRelease)(struct component*), 
                 void (*onPointerEnter)(struct component*), void (*onPointerExit)(struct component*));
 void button_update(component* c1);
-void button_init();
+void button_init(component* comp);
+void button_destroy(component* comp);
 
 #endif
