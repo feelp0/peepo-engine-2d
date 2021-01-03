@@ -95,7 +95,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files/SDLWindowPrj
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files/PeepoEngine2D
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -145,7 +145,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=SDLWindowPrj
+CMAKE_PROJECT_NAME:STATIC=PeepoEngine2D
 
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.18362.0/x64/rc.exe
@@ -218,6 +218,12 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Value Computed by CMake
+PeepoEngine2D_BINARY_DIR:STATIC=C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build
+
+//Value Computed by CMake
+PeepoEngine2D_SOURCE_DIR:STATIC=C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d
+
 //Path to a library.
 SDL2MAIN_LIBRARY:FILEPATH=SDL2MAIN_LIBRARY-NOTFOUND
 
@@ -259,12 +265,6 @@ SDL2_PATH:STRING=c:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/cmak
 
 //No help, variable specified on the command line.
 SDL2_TTF_PATH:STRING=c:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/cmake/sdl2_ttf/
-
-//Value Computed by CMake
-SDLWindowPrj_BINARY_DIR:STATIC=C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build
-
-//Value Computed by CMake
-SDLWindowPrj_SOURCE_DIR:STATIC=C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d
 
 
 ########################
@@ -436,5 +436,5 @@ SDL2_MIXER_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SDL2_MIXER_LIBRARY
 SDL2_MIXER_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files/SDLWindowPrj
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files/PeepoEngine2D
 

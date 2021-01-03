@@ -28,7 +28,7 @@
 					[
 						0
 					],
-					"name" : "SDLWindowPrj",
+					"name" : "PeepoEngine2D",
 					"targetIndexes" : 
 					[
 						0,
@@ -42,15 +42,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Debug-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-Debug-526b35d420cb9c9e24f7.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-Debug-24bef8897c9ef5c53491.json",
-					"name" : "SDLWindowPrj",
+					"id" : "PeepoEngine2D::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PeepoEngine2D-Debug-eb9c436d6589a385a9b0.json",
+					"name" : "PeepoEngine2D",
 					"projectIndex" : 0
 				},
 				{
@@ -89,7 +89,7 @@
 					[
 						0
 					],
-					"name" : "SDLWindowPrj",
+					"name" : "PeepoEngine2D",
 					"targetIndexes" : 
 					[
 						0,
@@ -103,15 +103,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Release-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-Release-526b35d420cb9c9e24f7.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-Release-52c3bc8a2840219cfee3.json",
-					"name" : "SDLWindowPrj",
+					"id" : "PeepoEngine2D::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PeepoEngine2D-Release-ad6296512fe8746b76f2.json",
+					"name" : "PeepoEngine2D",
 					"projectIndex" : 0
 				},
 				{
@@ -150,7 +150,7 @@
 					[
 						0
 					],
-					"name" : "SDLWindowPrj",
+					"name" : "PeepoEngine2D",
 					"targetIndexes" : 
 					[
 						0,
@@ -164,15 +164,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-MinSizeRel-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-526b35d420cb9c9e24f7.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-MinSizeRel-de91351364375fa849ac.json",
-					"name" : "SDLWindowPrj",
+					"id" : "PeepoEngine2D::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PeepoEngine2D-MinSizeRel-45b6400cf6aa8855c4b1.json",
+					"name" : "PeepoEngine2D",
 					"projectIndex" : 0
 				},
 				{
@@ -211,7 +211,7 @@
 					[
 						0
 					],
-					"name" : "SDLWindowPrj",
+					"name" : "PeepoEngine2D",
 					"targetIndexes" : 
 					[
 						0,
@@ -225,15 +225,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-6a2a16f84253cd6f102f.json",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-526b35d420cb9c9e24f7.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLWindowPrj-RelWithDebInfo-42e717087bf27063d7c0.json",
-					"name" : "SDLWindowPrj",
+					"id" : "PeepoEngine2D::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PeepoEngine2D-RelWithDebInfo-015d339a2b295e2f20c4.json",
+					"name" : "PeepoEngine2D",
 					"projectIndex" : 0
 				},
 				{

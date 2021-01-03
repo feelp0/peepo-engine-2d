@@ -1,3 +1,3 @@
-C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build/CMakeFiles/SDLWindowPrj.dir
+C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build/CMakeFiles/PeepoEngine2D.dir
 C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build/CMakeFiles/ZERO_CHECK.dir

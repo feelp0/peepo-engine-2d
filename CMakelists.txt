@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.18)
 
 
-project(SDLWindowPrj LANGUAGES C)
+project(PeepoEngine2D LANGUAGES C)
 
 #[[
   CMAKE_MODULE_PATH da usare quando cerco librerie di tipo MODULO (ovvero Find*.cmake)
@@ -46,15 +46,15 @@ endforeach()
 file(GLOB SOURCES "src/*.c" "src/components/*.c")
 file(GLOB HEADERS "include/*.h" "include/components/*.h")
 
-add_executable(SDLWindowPrj ${SOURCES} ${SOURCESCOMP})
+add_executable(PeepoEngine2D ${SOURCES} ${SOURCESCOMP})
 # link diretto sulla .lib
-target_link_libraries(SDLWindowPrj 
+target_link_libraries(PeepoEngine2D 
   ${SDL2_LIBRARY}
   ${SDL2_IMAGE_LIBRARY}
   ${SDL2TTF_LIBRARY}
   ${SDL2_MIXER_LIBRARY}
 ) 
-target_include_directories(SDLWindowPrj 
+target_include_directories(PeepoEngine2D 
   PRIVATE 
     ${SDL2_INCLUDE_DIR}
     ${SDL2_IMAGE_INCLUDE_DIR} 
@@ -76,8 +76,8 @@ if(WIN32)
     set(DLL_LIST "${SDL2_DLL}" "${SDL2IMAGE_DLLS}" "${SDL2ITTF_DLLS}" "${SDL2MIXER_DLLS}")
    
     foreach(EACH_DLL ${DLL_LIST})
-      add_custom_command(TARGET SDLWindowPrj POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${EACH_DLL} $<TARGET_FILE_DIR:SDLWindowPrj>
+      add_custom_command(TARGET PeepoEngine2D POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${EACH_DLL} $<TARGET_FILE_DIR:PeepoEngine2D>
       )
     endforeach()
   
@@ -85,7 +85,7 @@ endif(WIN32)
 
 # Post build: Copy Resources to bin
 set(ResourcesPath ${CMAKE_CURRENT_SOURCE_DIR}/resources)
-add_custom_command(TARGET SDLWindowPrj POST_BUILD
+add_custom_command(TARGET PeepoEngine2D POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E cmake_echo_color --cyan "Copy Resources..."
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${ResourcesPath} $<TARGET_FILE_DIR:SDLWindowPrj>/resources
+            COMMAND ${CMAKE_COMMAND} -E copy_directory ${ResourcesPath} $<TARGET_FILE_DIR:PeepoEngine2D>/resources
     )

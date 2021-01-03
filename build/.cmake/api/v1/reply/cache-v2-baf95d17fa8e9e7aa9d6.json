@@ -595,7 +595,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files/SDLWindowPrj"
+			"value" : "C:/Program Files/PeepoEngine2D"
 		},
 		{
 			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
@@ -843,7 +843,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "SDLWindowPrj"
+			"value" : "PeepoEngine2D"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER",
@@ -1234,6 +1234,30 @@
 			"value" : "[TRUE][v()]"
 		},
 		{
+			"name" : "PeepoEngine2D_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build"
+		},
+		{
+			"name" : "PeepoEngine2D_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d"
+		},
+		{
 			"name" : "SDL2MAIN_LIBRARY",
 			"properties" : 
 			[
@@ -1442,30 +1466,6 @@
 			"value" : "c:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/cmake/sdl2_ttf/"
 		},
 		{
-			"name" : "SDLWindowPrj_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build"
-		},
-		{
-			"name" : "SDLWindowPrj_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d"
-		},
-		{
 			"name" : "_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX",
 			"properties" : 
 			[
@@ -1475,7 +1475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/SDLWindowPrj"
+			"value" : "C:/Program Files/PeepoEngine2D"
 		}
 	],
 	"kind" : "cache",

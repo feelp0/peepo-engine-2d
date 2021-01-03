@@ -1,6 +1,6 @@
 ^C:\USERS\FILIP\DESKTOP\3AIV\PEEPO-ENGINE2D\PEEPO-ENGINE-2D\BUILD\CMAKEFILES\1B8196FA846C596D3311E6E0C2F17B11\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d -BC:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build/SDLWindowPrj.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d -BC:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/build/PeepoEngine2D.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

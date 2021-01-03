@@ -82,6 +82,7 @@ void* vector_remove(vector* vec, void* item){
             return v;
         }
     }
+    return NULL;
 }
 
 void* vector_at(vector* vec, uint index){

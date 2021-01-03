@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Debug/SDLWindowPrj.exe"
+			"path" : "RelWithDebInfo/PeepoEngine2D.exe"
 		},
 		{
-			"path" : "Debug/SDLWindowPrj.pdb"
+			"path" : "RelWithDebInfo/PeepoEngine2D.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -52,7 +52,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "/DWIN32 /D_WINDOWS /Zi /O2 /Ob1 /DNDEBUG -MD"
 				}
 			],
 			"includes" : 
@@ -107,13 +107,13 @@
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "SDLWindowPrj::@6890427a1f51a3e7e1df",
+	"id" : "PeepoEngine2D::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd",
+				"fragment" : "/DWIN32 /D_WINDOWS /Zi /O2 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
@@ -147,8 +147,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "SDLWindowPrj",
-	"nameOnDisk" : "SDLWindowPrj.exe",
+	"name" : "PeepoEngine2D",
+	"nameOnDisk" : "PeepoEngine2D.exe",
 	"paths" : 
 	{
 		"build" : ".",
