@@ -14,9 +14,9 @@ Atm peepo-engine-2d have:
   
 To be implemented:  
   -Object collision (TO ADD: square/square, circle/square);  
-  -Collision Events(TO ADD: OnEnter, OnStay);
-  -Collider Collision Mask;
-  -Collider inside items;
+  -Collision Events(TO ADD: OnEnter, OnStay);  
+  -Collider Collision Mask;  
+  -Collider inside items;  
   -Tiled tilemaps import with collision masks;  
   -Feature from bugs;  
     
