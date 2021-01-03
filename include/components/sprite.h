@@ -17,8 +17,8 @@ struct sprite{
     float __animationTimer;
 };typedef struct sprite sprite;
 
-void sprite_new(component* comp, const char* path, int z_index, int w, int h);
-void sprite_new_animated(component* comp, const char* path, int z_index, int frames, float animationSpeed);
+void sprite_new(gameObject* go, const char* path, int z_index, int w, int h);
+void sprite_new_animated(gameObject* go, const char* path, int z_index, int frames, float animationSpeed);
 void sprite_destroy(sprite* r);
 void sprite_init();
 void sprite_update(component* c);

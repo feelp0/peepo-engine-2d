@@ -7,8 +7,8 @@ typedef struct{
     vec2 rot;
 }transform;
 
-transform* transform_new(component* c);
-transform* transform_new_with_coord(component* c, float x, float y);
+transform* transform_new(gameObject* go);
+transform* transform_new_with_coord(gameObject* go, float x, float y);
 void transform_update(component* c); //lallero
 void transform_init();
 

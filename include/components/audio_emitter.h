@@ -16,7 +16,7 @@ struct audio_emitter{
     boolean __is_playing;
 }; typedef struct audio_emitter audio_emitter;
 
-void audio_emitter_new(component* comp, const char* path, int loops, audio_extension audio_ext);
+void audio_emitter_new(gameObject* go, const char* path, int loops, audio_extension audio_ext);
 void audio_destroy(component* comp);
 void audio_update(component* comp);
 

@@ -1,9 +1,9 @@
 //#include "button.h"
 #include "components.h"
 
-void button_new(component* c, void (*onClick)(struct component*), void (*onClickRelease)(struct component*), void (*onPointerEnter)(struct component*), void (*onPointerExit)(struct component*)){
+void button_new(gameObject* go, void (*onClick)(struct component*), void (*onClickRelease)(struct component*), void (*onPointerEnter)(struct component*), void (*onPointerExit)(struct component*)){
     button* b = (button*)malloc(sizeof(button));
-
+    component* c = __component_new(go);
     sprite* s = gameObject_get_component(c->owner, SPRITE_T);
     b->x = s->transform->pos.x;
     b->y = s->transform->pos.y;

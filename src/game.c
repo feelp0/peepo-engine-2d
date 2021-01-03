@@ -89,36 +89,30 @@ void btn_play_exit(component* comp){
 }
 
 void initMainMenu(game* game){
-    //create main menu
+    //create main menu bg
     gameObject* go = gameObject_new(game->current_scene);
-    component* c1 = gameObject_create_component(go);
-    sprite_new(c1, "resources/assets/ui/Title.png", 0, 0, 0);
+    sprite_new(go, "resources/assets/ui/Title.png", 0, 0, 0);
     //play BTN
     go = gameObject_new(game->current_scene);
-    c1 = gameObject_create_component(go); //FIX: To avoid this shit spam maybe pass the gameObj to the xcmp_new and inside create a comp
-    sprite_new(c1, "resources/assets/ui/start.png", 0, 150, 75);
+    sprite_new(go, "resources/assets/ui/start.png", 0, 150, 75);
     transform* t = gameObject_get_component(go, TRANSFORM_T);
     t->pos.x = 320;
     t->pos.y = 230;
     //btncomp
-    c1 = gameObject_create_component(go);
-    button_new(c1, btn_play_click, btn_play_click_release, btn_play_enter, btn_play_exit);
+    button_new(go, btn_play_click, btn_play_click_release, btn_play_enter, btn_play_exit);
 
     //quit BTN
     go = gameObject_new(game->current_scene);
-    c1 = gameObject_create_component(go);
-    sprite_new(c1, "resources/assets/ui/start.png", 0, 150, 75);
+    sprite_new(go, "resources/assets/ui/start.png", 0, 150, 75);
     t = gameObject_get_component(go, TRANSFORM_T);
     t->pos.x = 320;
     t->pos.y = 330;
     //btncomp
-    c1 = gameObject_create_component(go);
-    button_new(c1, btn_play_click, btn_quit_click_release, btn_play_enter, btn_play_exit);
+    button_new(go, btn_play_click, btn_quit_click_release, btn_play_enter, btn_play_exit);
 
     //create ostObj
     go = gameObject_new(game->current_scene);
-    c1 = gameObject_create_component(go);
-    audio_emitter_new(c1, "resources/assets/audio/background.mp3", 1, MP3);
+    audio_emitter_new(go, "resources/assets/audio/background.mp3", 1, MP3);
     dont_destroy_on_load(go); //avoid destroying this obj since it reproduce the main ost
     game->current_scene->started = true;
 

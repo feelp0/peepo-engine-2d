@@ -5,10 +5,8 @@ gameObject* gameObject_new(scene* scene){
     go->components = vector_new();
     go->__scene = scene;
     go->__dontDestroyOnLoad = false;
-    component* comp = __component_new(go);
-    transform_new(comp);
+    transform_new(go);
     vector_add(go->__scene->gameObjects, go);
-    vector_add(go->components, comp);
     return go;
 }
 

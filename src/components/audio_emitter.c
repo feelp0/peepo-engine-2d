@@ -1,6 +1,9 @@
 #include "components.h"
 
-void audio_emitter_new(component* comp, const char* path, int loops, audio_extension audio_ext){
+void audio_emitter_new(gameObject* go, const char* path, int loops, audio_extension audio_ext){
+
+    component* comp = __component_new(go);
+
     audio_emitter* a = (audio_emitter*)malloc(sizeof(audio_emitter));
     a->loops = loops;
     a->path = path;

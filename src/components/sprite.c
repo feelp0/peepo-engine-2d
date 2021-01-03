@@ -17,8 +17,9 @@
 //     comp->update = sprite_update;
 // }
 
-void sprite_new(component* comp, const char* path, int z_index, int w, int h){
+void sprite_new(gameObject* go, const char* path, int z_index, int w, int h){
     sprite* s = (sprite*)malloc(sizeof(sprite));
+    component* comp = __component_new(go);
     s->texture = NULL;
     s->game_renderer = comp->owner->__scene->__game->__renderer;
     SDL_Surface* surf = IMG_Load(path);
@@ -41,8 +42,9 @@ void sprite_new(component* comp, const char* path, int z_index, int w, int h){
         add_drawable(comp->owner->__scene->draw_mgr, s);
 }
 
-void sprite_new_animated(component* comp, const char* path, int z_index, int frames, float animationSpeed){
+void sprite_new_animated(gameObject* go, const char* path, int z_index, int frames, float animationSpeed){
     sprite* s = (sprite*)malloc(sizeof(sprite));
+    component* comp = __component_new(go);
     s->texture = NULL;
     s->game_renderer = comp->owner->__scene->__game->__renderer;
     SDL_Surface* surf = IMG_Load(path);

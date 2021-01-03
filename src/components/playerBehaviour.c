@@ -1,7 +1,8 @@
 #include "components.h"
 
-void player_new(component* c, float speed, float shootCooldown, int maxHealth){
+void player_new(gameObject* go, float speed, float shootCooldown, int maxHealth){
     playerBehaviour* p = (playerBehaviour*)malloc(sizeof(playerBehaviour));
+    component* c = __component_new(go);
     p->__speed = speed;
     p->__shootCD = shootCooldown;
     p->__maxHealth = maxHealth;
