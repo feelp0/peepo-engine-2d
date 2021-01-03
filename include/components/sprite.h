@@ -22,5 +22,7 @@ void sprite_new_animated(component* comp, const char* path, int z_index, int fra
 void sprite_destroy(sprite* r);
 void sprite_init();
 void sprite_update(component* c);
+void sprite_scale(sprite* s, int value);
+void sprite_recolor(sprite* s, uint r, uint g, uint b);
 
 #endif

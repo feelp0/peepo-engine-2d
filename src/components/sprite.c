@@ -107,3 +107,14 @@ void sprite_update(component* c){
     s->dst_rect.x = s->transform->pos.x;
     s->dst_rect.y = s->transform->pos.y;
 }
+
+void sprite_scale(sprite* s, int value){
+    s->dst_rect.w += value;
+    s->dst_rect.h += value;
+    s->transform->pos.x -= value * 0.5f;
+    s->transform->pos.y -= value * 0.5f;
+}
+
+void sprite_recolor(sprite* s, uint r, uint g, uint b){
+    SDL_SetTextureColorMod(s->texture, r, g, b);
+}

@@ -1048,6 +1048,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\audio_emitter.c" />
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\button.c" />
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\gfx_manager.c" />
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\playerBehaviour.c" />

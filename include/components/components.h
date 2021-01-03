@@ -5,5 +5,6 @@
 #include "sprite.h"
 #include "playerBehaviour.h"
 #include "button.h"
+#include "audio_emitter.h"
 
 #endif

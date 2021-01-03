@@ -17,6 +17,9 @@ game* game_new(int width, int height){
 
 int init(game* game){
     SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_AUDIO);
+
+    Mix_OpenAudio(22050,AUDIO_S16SYS,2,640);
 
     game->__window = SDL_CreateWindow(
         "First SDL Window",
@@ -54,13 +57,35 @@ int init(game* game){
 }
 
 void btn_play_click(component* comp){
-    printf("btn Play Click");
+    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
+    sprite_scale(s, -10);
+    sprite_recolor(s, 150,150,150);
 }
+
+void btn_play_click_release(component* comp){
+    //animate
+    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
+    sprite_scale(s, 10);
+    sprite_recolor(s, 255,255,255);
+    //do something
+}
+
+void btn_quit_click_release(component* comp){
+    //animate
+    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
+    sprite_scale(s, 10);
+    sprite_recolor(s, 255,255,255);
+    //do something
+    comp->owner->__scene->__game->running = false;
+}
+
 void btn_play_enter(component* comp){
-    printf("btn play enter");
+    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
+    sprite_scale(s, 5);
 }
 void btn_play_exit(component* comp){
-    printf("btn play exit");
+    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
+    sprite_scale(s, -5);
 }
 
 void initMainMenu(game* game){
@@ -68,19 +93,33 @@ void initMainMenu(game* game){
     gameObject* go = gameObject_new(game->current_scene);
     component* c1 = gameObject_create_component(go);
     sprite_new(c1, "resources/assets/ui/Title.png", 0, 0, 0);
-    vector_add(game->current_scene->gameObjects, go);
     //play BTN
     go = gameObject_new(game->current_scene);
-    c1 = gameObject_create_component(go);
+    c1 = gameObject_create_component(go); //FIX: To avoid this shit spam maybe pass the gameObj to the xcmp_new and inside create a comp
     sprite_new(c1, "resources/assets/ui/start.png", 0, 150, 75);
     transform* t = gameObject_get_component(go, TRANSFORM_T);
     t->pos.x = 320;
     t->pos.y = 230;
     //btncomp
     c1 = gameObject_create_component(go);
-    button_new(c1, btn_play_click, btn_play_enter, btn_play_exit);
-    vector_add(game->current_scene->gameObjects, go);
+    button_new(c1, btn_play_click, btn_play_click_release, btn_play_enter, btn_play_exit);
 
+    //quit BTN
+    go = gameObject_new(game->current_scene);
+    c1 = gameObject_create_component(go);
+    sprite_new(c1, "resources/assets/ui/start.png", 0, 150, 75);
+    t = gameObject_get_component(go, TRANSFORM_T);
+    t->pos.x = 320;
+    t->pos.y = 330;
+    //btncomp
+    c1 = gameObject_create_component(go);
+    button_new(c1, btn_play_click, btn_quit_click_release, btn_play_enter, btn_play_exit);
+
+    //create ostObj
+    go = gameObject_new(game->current_scene);
+    c1 = gameObject_create_component(go);
+    audio_emitter_new(c1, "resources/assets/audio/background.mp3", 1, MP3);
+    dont_destroy_on_load(go); //avoid destroying this obj since it reproduce the main ost
     game->current_scene->started = true;
 
     //when i've added all the sprites order them by z-index 

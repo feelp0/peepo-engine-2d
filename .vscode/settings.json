@@ -6,5 +6,6 @@
         "SDL2_TTF_PATH": "${workspaceFolder}/cmake/sdl2_ttf/",
         "SDL2_MIXER_PATH": "${workspaceFolder}/cmake/sdl2_mixer/",
     },
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.errorSquiggles": "Disabled"
 }

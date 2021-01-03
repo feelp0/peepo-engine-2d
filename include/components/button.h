@@ -12,9 +12,11 @@ struct button{
     void (*onClick)(struct component*);
     void (*onPointerEnter)(struct component*);
     void (*onPointerExit)(struct component*);
+    void (*onClickRelease)(struct component*);
 }; typedef struct button button;
 
-void button_new(component* c, void (*onClick)(struct component*), void (*onPointerEnter)(struct component*), void (*onPointerExit)(struct component*));
+void button_new(component* c, void (*onClick)(struct component*), void (*onClickRelease)(struct component*), 
+                void (*onPointerEnter)(struct component*), void (*onPointerExit)(struct component*));
 void button_update(component* c1);
 void button_init();
 

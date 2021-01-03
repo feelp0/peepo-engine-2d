@@ -4,8 +4,10 @@ gameObject* gameObject_new(scene* scene){
     gameObject* go = (gameObject*)malloc(sizeof(gameObject));
     go->components = vector_new();
     go->__scene = scene;
+    go->__dontDestroyOnLoad = false;
     component* comp = __component_new(go);
     transform_new(comp);
+    vector_add(go->__scene->gameObjects, go);
     vector_add(go->components, comp);
     return go;
 }
@@ -59,4 +61,8 @@ component* __component_new(gameObject* go){
     comp->owner = go;
     vector_add(go->components, comp);
     return comp;
+}
+
+void dont_destroy_on_load(gameObject* go){
+    go->__dontDestroyOnLoad = true;
 }
