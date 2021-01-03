@@ -7,11 +7,16 @@ Atm peepo-engine-2d have:
   -Single image or animation (from a sprite sheet) rendering;  
   -Scene managment;  
   -UI and UI events (atm OnPointerEnter, OnPointerExit, OnClick);  
+  -Colliders (only circle collider atm)(Normal and Trigger);  
+  -Object collision (circle/circle only atm);  
+  -Collision Events(OnStay only atm);  
   -Bugs  
   
 To be implemented:  
-  -Colliders (Normal and Trigger);  
-  -Object collision (circle/circle, square/square, circle/square);  
+  -Object collision (TO ADD: square/square, circle/square);  
+  -Collision Events(TO ADD: OnEnter, OnStay);
+  -Collider Collision Mask;
+  -Collider inside items;
   -Tiled tilemaps import with collision masks;  
   -Feature from bugs;  
     
