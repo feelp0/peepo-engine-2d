@@ -85,6 +85,7 @@ void btn_play_enter(component* comp){
     sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
     sprite_scale(s, 5);
 }
+
 void btn_play_exit(component* comp){
     sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
     sprite_scale(s, -5);
@@ -122,12 +123,52 @@ void initMainMenu(game* game){
     //vector_quick(game->current_scene->draw_mgr->drawables, z_buffer); //TODO: this throws a stack-overflow ex :c 
 }
 
+void OnEnter(component* c){
+    printf("collided");
+}
+
 void initGameScene(game* game){
     //TEST PLAYER
-    gameObject* player = gameObject_new(game->current_scene);
-    sprite_new_animated(player, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
-    player_new(player, 200, 2, 4);
+    gameObject* go = gameObject_new(game->current_scene);
+    sprite_new_animated(go, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
+    player_new(go, 200, 2, 4);
+    circle_collider_new(go, 0, OnEnter, NULL);
+
+    //test collision
+    vec2 v = vec2_new(300, 300);
+    go = gameObject_new_with_coord(game->current_scene, &v);
+    sprite_new_animated(go, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
+    //player_new(player, 200, 2, 4); 
+    circle_collider_new(go, 0, OnEnter, NULL);
+
+    v = vec2_new(0, 405);
+    go = gameObject_new_with_coord(game->current_scene, &v);
+    sprite_new(go, "resources/assets/ui/bottom.png", -2, 0, 0);
+
     game->current_scene->started = true;
+}
+
+void update_events(game* game, SDL_Event* event){
+    while(SDL_PollEvent(event)){
+            switch (event->type)
+            {
+                case SDL_QUIT:
+                    game->running = false;
+                break;
+                case SDL_MOUSEBUTTONDOWN:
+                    if(event->button.button == SDL_BUTTON_LEFT){
+                        game->mouseState = 1;
+                    }
+                break;
+                case SDL_MOUSEBUTTONUP:
+                    if(event->button.button == SDL_BUTTON_LEFT){
+                        game->mouseState = 0;
+                    }
+                break;
+                default:
+                    break;
+            }
+        }
 }
 
 void gameLoop(game* game){
@@ -137,39 +178,27 @@ void gameLoop(game* game){
     scene* game_scene = scene_new(game, "game", initGameScene);
 
     scene_set_active(menu);
-
+    SDL_Event event;
     while(game->running){
+        //if scene is going to chage
         if(game->current_scene != game->next_scene){
             scene_change(game->current_scene, game->next_scene);
         }
+        //if the scene changed but isn't initialized
         if(game->current_scene->started == false){
             game->current_scene->init(game);
         }
-        SDL_Event event;
-        while(SDL_PollEvent(&event)){
-            switch (event.type)
-            {
-                case SDL_QUIT:
-                    game->running = false;
-                break;
-                case SDL_MOUSEBUTTONDOWN:
-                    if(event.button.button == SDL_BUTTON_LEFT){
-                        game->mouseState = 1;
-                    }
-                break;
-                case SDL_MOUSEBUTTONUP:
-                    if(event.button.button == SDL_BUTTON_LEFT){
-                        game->mouseState = 0;
-                    }
-                break;
-                default:
-                    break;
-            }
-        }
+
+        update_events(game, &event);
+        
         tick(game);
         clear(game);
         update(game);
         draw(game);
+        // int fps = getFPS(game);
+        // char title[100];
+        // sprintf_s(title, sizeof(title), "PeepoEngine2D - Fps: %d", fps);
+        // SDL_SetWindowTitle(game->__window, title);
     }
 
     scene_destroy(game->current_scene);
@@ -200,4 +229,14 @@ void update(game* game){
 void draw(game* game){
     scene_draw(game->current_scene);
     SDL_RenderPresent(game->__renderer);
+}
+
+
+int getFPS(game* game){
+        game->__last_count = game->__curr_count;
+        game->__curr_count = SDL_GetPerformanceCounter();
+        int freq = SDL_GetPerformanceFrequency();
+        float delta_time = ((float)(game->__curr_count - game->__last_count) / (float)freq);
+        int fps = (int)(1.f / delta_time);
+        return fps;
 }

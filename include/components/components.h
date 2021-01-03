@@ -6,5 +6,6 @@
 #include "playerBehaviour.h"
 #include "button.h"
 #include "audio_emitter.h"
+#include "circle_collider.h"
 
 #endif

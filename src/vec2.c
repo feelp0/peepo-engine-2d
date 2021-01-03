@@ -34,7 +34,8 @@ float vec2_dot(vec2* v1, vec2* v2){
 }
 
 float vec2_magn(vec2* v){
-    return sqrtf(v->x * v->x + v->y * v->y);
+    float m = sqrtf(v->x * v->x + v->y * v->y);
+    return m;
 }
 
 vec2 vec2_norm(vec2* v){
@@ -50,4 +51,10 @@ vec2 vec2_mul_scal(vec2* v, float val){
     vec.x = v->x * val;
     vec.y = v->y * val;
     return vec;
+}
+
+float vec2_dist(vec2* v1, vec2* v2){
+    vec2 subV = vec2_sub(v1, v2);
+    float dist = vec2_magn(&subV);
+    return dist;
 }

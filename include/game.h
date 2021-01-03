@@ -20,6 +20,7 @@ struct game{
     vector* scenes;
     scene* current_scene;
     scene* next_scene;
+    //gfxmgr* gfx_mgr;
     SDL_Window* __window;
     SDL_Renderer* __renderer;
     Uint8* vkey;

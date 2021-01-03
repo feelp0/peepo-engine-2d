@@ -8,7 +8,7 @@ typedef struct{
 }transform;
 
 transform* transform_new(gameObject* go);
-transform* transform_new_with_coord(gameObject* go, float x, float y);
+transform* transform_new_with_coord(gameObject* go, vec2 v);
 void transform_update(component* c); //lallero
 void transform_init(component* comp);
 void transform_destroy(component* comp);

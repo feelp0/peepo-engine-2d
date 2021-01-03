@@ -1,5 +1,6 @@
 #include "gameObject.h"
 #include "gfx_manager.h"
+#include "physics_manager.h"
 
 scene* scene_new(game* game, const char* name, void(*init)(struct game*)){
     scene* s = (scene*)malloc(sizeof(scene));
@@ -11,6 +12,7 @@ scene* scene_new(game* game, const char* name, void(*init)(struct game*)){
     s->init = init;
     s->started = false;
     s->draw_mgr = gfxmgr_new(s->__game->__renderer);
+    s->physics_mgr = physics_mgr_new();
     s->index = vector_size(s->__game->scenes);
     vector_add(s->__game->scenes, s);
     //s->index = vector_size(game->scenes);
@@ -51,6 +53,8 @@ void scene_update(scene* scene){
         if(gameObject_is_active(go))
             gameObject_update(go);
     }
+    
+    physics_mgr_update(scene->physics_mgr);
 }
 
 void scene_draw(scene* scene){

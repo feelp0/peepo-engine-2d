@@ -1,12 +1,18 @@
 #include "gameObject.h"
 
 gameObject* gameObject_new(scene* scene){
+    vec2 v = vec2_new(0, 0);
+    gameObject* go = gameObject_new_with_coord(scene, &v);
+    return go;
+}
+
+gameObject* gameObject_new_with_coord(scene* scene, vec2* v){
     gameObject* go = (gameObject*)malloc(sizeof(gameObject));
     go->components = vector_new();
     go->__scene = scene;
     go->__dontDestroyOnLoad = false;
     go->__is_active = true;
-    transform_new(go);
+    transform_new_with_coord(go, *v);
     vector_add(go->__scene->gameObjects, go);
     return go;
 }

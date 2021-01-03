@@ -10,6 +10,7 @@ struct scene{
     float __timescale;
     struct game* __game;
     struct gfxmgr* draw_mgr;
+    struct physics_mgr* physics_mgr;
     vector* gameObjects;
     boolean started;
     void(*init)(struct game*);

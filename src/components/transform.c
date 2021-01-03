@@ -1,13 +1,13 @@
 #include "transform.h"
 
 transform* transform_new(gameObject* go){
-    return transform_new_with_coord(go, 0.f,0.f);
+    return transform_new_with_coord(go, vec2_new(0, 0));
 }
 
-transform* transform_new_with_coord(gameObject* go, float x, float y){
+transform* transform_new_with_coord(gameObject* go, vec2 v){
     component* c = __component_new(go);
     transform* t = (transform*)malloc(sizeof(transform));
-    t->pos = vec2_new(x, y);
+    t->pos = v;
     c->data = t;
     c->type = TRANSFORM_T;
     c->init = transform_init;

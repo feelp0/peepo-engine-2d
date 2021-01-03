@@ -97,7 +97,9 @@
 				9,
 				10,
 				11,
-				12
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -172,7 +174,9 @@
 				9,
 				10,
 				11,
-				12
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -193,7 +197,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/components/circle_collider.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/components/gfx_manager.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/components/physics_manager.c",
 			"sourceGroupIndex" : 0
 		},
 		{

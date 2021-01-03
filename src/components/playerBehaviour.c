@@ -40,7 +40,8 @@ void player_update(component* c){
             t->pos.y -= 1.f * p->__speed * dt;
     }
     if(state[SDL_SCANCODE_DOWN]){
-        t->pos.y += 1.f * p->__speed * dt;
+        if((int)t->pos.y + s->dst_rect.h < 405) //hard coded atm
+            t->pos.y += 1.f * p->__speed * dt;
     }
     if(state[SDL_SCANCODE_SPACE] && gameObject_is_active(c->owner)){
         gameObject_set_active(c->owner, false);

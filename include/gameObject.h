@@ -5,6 +5,7 @@
 enum comp_type{
     SPRITE_T,
     AUDIO_EMITTER_T,
+    CIRCLE_COLLIDER_T,
     BUTTON_T,
     PLAYER_T,
     TRANSFORM_T
@@ -29,8 +30,9 @@ struct component{
     void(*on_disable)(struct component*);
 } ; typedef struct component component;
 
-gameObject* gameObject_new(scene* game);
-gameObject* gameObject_new_default(scene* game);
+gameObject* gameObject_new(scene* scene);
+gameObject* gameObject_new_with_coord(scene* scene, vec2* pos);
+gameObject* gameObject_new_default(scene* scene);
 void gameObject_destroy(gameObject* go);
 void* gameObject_get_component(gameObject* go, component_type ct);
 void gameObject_update(gameObject* go);
