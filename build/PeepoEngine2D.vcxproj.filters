@@ -10,6 +10,9 @@
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\circle_collider.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\enemyBehaviour.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\gfx_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>

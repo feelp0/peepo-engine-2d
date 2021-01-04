@@ -99,7 +99,8 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15
 			]
 		}
 	],
@@ -176,7 +177,8 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15
 			]
 		}
 	],
@@ -198,6 +200,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/components/circle_collider.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/components/enemyBehaviour.c",
 			"sourceGroupIndex" : 0
 		},
 		{

@@ -8,6 +8,7 @@ enum comp_type{
     CIRCLE_COLLIDER_T,
     BUTTON_T,
     PLAYER_T,
+    ENEMY_T,
     TRANSFORM_T
 }; typedef enum comp_type component_type;
 
