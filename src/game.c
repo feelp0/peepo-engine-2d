@@ -124,7 +124,7 @@ void initMainMenu(game* game){
 }
 
 void OnEnter(component* c){
-    //printf("collided");
+    printf("OnEnter");
 }
 void OnExit(component* c){
     printf("OnExit");
@@ -136,14 +136,16 @@ void initGameScene(game* game){
     sprite_new_animated(go, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
     player_new(go, 200, 2, 4);
     circle_collider_new(go, 0, OnEnter, NULL, OnExit);
+    circle_collider_set_collision(go, PLAYER_MASK, ENEMY_MASK);
 
-    //test collision
+    //test enemy
     vec2 v = vec2_new(300, 300);
     go = gameObject_new_with_coord(game->current_scene, &v);
     sprite_new_animated(go, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
     enemy_new(go, HORIZONTAL, 50, 0, 1);
     //player_new(player, 200, 2, 4); 
     circle_collider_new(go, 0, OnEnter, NULL, OnExit);
+    circle_collider_set_collision(go, ENEMY_MASK, PLAYER_MASK);
 
     v = vec2_new(0, 405);
     go = gameObject_new_with_coord(game->current_scene, &v);

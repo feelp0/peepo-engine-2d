@@ -8,6 +8,7 @@ physics_mgr* physics_mgr_new(){
 }
 
 boolean __check_circle_collision(circle_collider* cc1, circle_collider* cc2){
+    if(!(cc1->colliding_mask & cc2->collider_mask)) return false; //if i dont need to check the coll lmao go back
     float vector_dist = vec2_dist(&cc1->position, &cc2->position);
     //printf("dist: %f\n", vector_dist);
     float radiuses = cc1->radius + cc2->radius;

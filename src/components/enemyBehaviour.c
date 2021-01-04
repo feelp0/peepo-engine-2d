@@ -27,7 +27,7 @@ void enemy_update(component* c){
     enemy_behaviour* p = (enemy_behaviour*)gameObject_get_component(c->owner, ENEMY_T);
     sprite* s = (sprite*)gameObject_get_component(c->owner, SPRITE_T);
     float dt = delta_time(c->owner->__scene);
-    t->pos.x -= 1.f * p->__speed * dt;
+    //t->pos.x -= 1.f * p->__speed * dt;
 }
 
 void enemy_destroy(component* comp){

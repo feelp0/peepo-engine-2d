@@ -28,8 +28,14 @@ void circle_collider_new(gameObject* go, float radius, void (*onEnter)(struct co
     comp->type = CIRCLE_COLLIDER_T;
 
     cc->__collisionRef = comp;
-    
+
     physics_mgr_add_updatable(go->__scene->physics_mgr, cc);
+}
+
+void circle_collider_set_collision(gameObject* go, collision_mask collider_mask, collision_mask colliding_mask){
+    circle_collider* cc = (circle_collider*)gameObject_get_component(go, CIRCLE_COLLIDER_T);
+    cc->collider_mask = collider_mask;
+    cc->colliding_mask = colliding_mask;
 }
 
 void circle_collider_init(component* comp){
@@ -62,8 +68,8 @@ void __cc_add_colliding_obj(component* me, component* other){
     for (uint i = 0; i < vector_size(cc1->insideObjs); i++)
     {
         component* c = (component*)vector_at(cc1->insideObjs, i);
-        if(c == other && cc1->onStay != NULL){
-            cc1->onStay(c);
+        if(c == other){
+            if(cc1->onStay != NULL) cc1->onStay(c);
             return;  
         } 
     }
