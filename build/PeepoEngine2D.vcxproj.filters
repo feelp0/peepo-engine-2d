@@ -4,22 +4,7 @@
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\audio_emitter.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\button.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\circle_collider.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\enemyBehaviour.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\gfx_manager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\physics_manager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\playerBehaviour.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\scene.c">
@@ -29,6 +14,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\transform.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\components\ui-element.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\game-behaviours\enemyBehaviour.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\game-behaviours\playerBehaviour.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\game.c">
@@ -41,6 +35,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\managers\gfx_manager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\managers\physics_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\filip\Desktop\3AIV\peepo-engine2d\peepo-engine-2d\src\vec2.c">

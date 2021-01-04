@@ -102,7 +102,7 @@ void initMainMenu(game* game){
     t->pos.x = 320;
     t->pos.y = 230;
     //btncomp
-    button_new(go, btn_play_click, btn_play_click_release, btn_play_enter, btn_play_exit);
+    ui_element_new(go, btn_play_click, btn_play_click_release, btn_play_enter, btn_play_exit);
 
     //quit BTN
     go = gameObject_new(game->current_scene);
@@ -111,7 +111,7 @@ void initMainMenu(game* game){
     t->pos.x = 320;
     t->pos.y = 330;
     //btncomp
-    button_new(go, btn_play_click, btn_quit_click_release, btn_play_enter, btn_play_exit);
+    ui_element_new(go, btn_play_click, btn_quit_click_release, btn_play_enter, btn_play_exit);
 
     //create ostObj
     go = gameObject_new(game->current_scene);

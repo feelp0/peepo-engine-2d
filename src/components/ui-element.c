@@ -1,8 +1,7 @@
-//#include "button.h"
 #include "components.h"
 
-void button_new(gameObject* go, void (*onClick)(struct component*), void (*onClickRelease)(struct component*), void (*onPointerEnter)(struct component*), void (*onPointerExit)(struct component*)){
-    button* b = (button*)malloc(sizeof(button));
+void ui_element_new(gameObject* go, void (*onClick)(struct component*), void (*onClickRelease)(struct component*), void (*onPointerEnter)(struct component*), void (*onPointerExit)(struct component*)){
+    ui_element* b = (ui_element*)malloc(sizeof(ui_element));
     component* c = __component_new(go);
     sprite* s = gameObject_get_component(c->owner, SPRITE_T);
     b->x = s->transform->pos.x;
@@ -16,21 +15,21 @@ void button_new(gameObject* go, void (*onClick)(struct component*), void (*onCli
     b->__inside = false;
     b->__clicked = false;
 
-    c->init = button_init;
-    c->destroy = button_destroy;
-    c->update = button_update;
-    c->on_enable = button_on_enable;
-    c->on_disable = button_on_disable;
+    c->init = ui_element_init;
+    c->destroy = ui_element_destroy;
+    c->update = ui_element_update;
+    c->on_enable = ui_element_on_enable;
+    c->on_disable = ui_element_on_disable;
     c->type = BUTTON_T;
     c->data = b;
 }
 
-void button_init(component* comp){
+void ui_element_init(component* comp){
 
 }
 
-void button_update(component* c1){
-    button* b = (button*)c1->data;
+void ui_element_update(component* c1){
+    ui_element* b = (ui_element*)c1->data;
     int mouse_x;
     int mouse_y;
     Uint32 mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
@@ -60,15 +59,15 @@ void button_update(component* c1){
     }
 }
 
-void button_destroy(component* comp){
-    button* b = (button*)comp->data;
+void ui_element_destroy(component* comp){
+    ui_element* b = (ui_element*)comp->data;
     free(b);
 }
 
-void button_on_enable(component* comp){
+void ui_element_on_enable(component* comp){
 
 }
 
-void button_on_disable(component* comp){
+void ui_element_on_disable(component* comp){
     
 }
