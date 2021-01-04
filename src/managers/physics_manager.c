@@ -59,6 +59,17 @@ void physics_mgr_add_updatable(physics_mgr* pm, circle_collider* updatable){
     vector_add(pm->udatables, updatable);
 }
 
+void physics_mgr_remove_updatable(physics_mgr* pm, struct circle_collider* item){
+    vector_remove(pm->udatables, item);
+    int size = vector_size(pm->collisions);
+    for (int i = size - 1; i >= 0; i--)
+    {
+        collision* c = (collision*)vector_at(pm->collisions, i);
+        if(c->cc1 == item || c->cc2 == item) vector_remove(pm->collisions, c);
+    }
+    
+}
+
 boolean __check_existing_collision(physics_mgr* pm, collision* c1){ //TODO: this sucks but atm works. find another way to avoid adding same collision
     for (uint i = 0; i < pm->collisions->__count; i++)
     {

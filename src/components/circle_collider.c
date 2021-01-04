@@ -50,16 +50,19 @@ void circle_collider_update(component* comp){
 
 void circle_collider_on_enable(component* comp){
     circle_collider* cc = (circle_collider*)comp->data;
+    physics_mgr_add_updatable(comp->owner->__scene->physics_mgr, cc);
     cc->__active = true;
 }
 
 void circle_collider_on_disable(component* comp){
     circle_collider* cc = (circle_collider*)comp->data;
+    physics_mgr_remove_updatable(comp->owner->__scene->physics_mgr, cc);
     cc->__active = false;
 }
 
 void circle_collider_destroy(component* comp){
     circle_collider* cc = (circle_collider*)comp->data;
+    physics_mgr_remove_updatable(comp->owner->__scene->physics_mgr, cc);//remove collider from collision stuff
     free(cc);
 }
 
