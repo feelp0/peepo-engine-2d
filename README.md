@@ -10,12 +10,11 @@ Atm peepo-engine-2d have:
   -Colliders (only circle collider atm)(Normal and Trigger);  
   -Object collision (circle/circle only atm);  
   -Collision Events(OnEnter, OnStay, OnExit);  
-  -Collider inside items;  
+  -Collider Collision Mask;  
   -Bugs;  
   
 To be implemented:  
   -Object collision (TO ADD: square/square, circle/square);  
-  -Collider Collision Mask;  
   -Tiled tilemaps import with collision masks;  
   -Feature from bugs;  
     
