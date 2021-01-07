@@ -53,105 +53,33 @@ int init(game* game){
         return 2;
     }
     
-    SDL_SetWindowTitle(game->__window, "peepo-engine");
+    SDL_SetWindowTitle(game->__window, "peepo-engine-2d");
     return 0;
 }
 
-void btn_play_click(component* comp){
-    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
-    sprite_scale(s, -10);
-    sprite_recolor(s, 150,150,150);
-}
-
-void btn_play_click_release(component* comp){
-    //animate
-    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
-    sprite_scale(s, 10);
-    sprite_recolor(s, 255,255,255);
-    //do something
-    comp->owner->__scene->__game->next_scene = vector_at(comp->owner->__scene->__game->scenes, 1); //load game scene;
-}
-
-void btn_quit_click_release(component* comp){
-    //animate
-    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
-    sprite_scale(s, 10);
-    sprite_recolor(s, 255,255,255);
-    //do something
-    comp->owner->__scene->__game->running = false;
-}
-
-void btn_play_enter(component* comp){
-    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
-    sprite_scale(s, 5);
-}
-
-void btn_play_exit(component* comp){
-    sprite* s = (sprite*)gameObject_get_component(comp->owner, SPRITE_T);
-    sprite_scale(s, -5);
-}
-
-void initMainMenu(game* game){
-    //create main menu bg
-    gameObject* go = gameObject_new(game->current_scene);
+void init_test_scene(game* game){
+    //
+    gameObject* go = gameObject_new(game->current_scene, "BG-TEST");
     sprite_new(go, "resources/assets/ui/Title.png", 0, 0, 0);
-    //play BTN
-    go = gameObject_new(game->current_scene);
-    sprite_new(go, "resources/assets/ui/start.png", 0, 150, 75);
-    transform* t = gameObject_get_component(go, TRANSFORM_T);
-    t->pos.x = 320;
-    t->pos.y = 230;
-    //btncomp
-    ui_element_new(go, btn_play_click, btn_play_click_release, btn_play_enter, btn_play_exit);
+    //sprite_new_animated(go, path, z_index, n_frames, animation_speed); animated sprite (TODO: add columns Y)
 
-    //quit BTN
-    go = gameObject_new(game->current_scene);
-    sprite_new(go, "resources/assets/ui/start.png", 0, 150, 75);
-    t = gameObject_get_component(go, TRANSFORM_T);
-    t->pos.x = 320;
-    t->pos.y = 330;
-    //btncomp
-    ui_element_new(go, btn_play_click, btn_quit_click_release, btn_play_enter, btn_play_exit);
+    //CREATE BUTTON_OBJ
+    // go = gameObject_new(game->current_scene, "playBTN");
+    //sprite_new(go, filePath, z_index, width, height); //if width || height are set to 0 the file size  will be used to avoid stretches
+    // vec2 pos = vec2_new(320, 230);
+    // go->transform->pos = pos;
+    //ui_element_new(go, btn_play_click, btn_play_click_release, btn_play_enter, btn_play_exit); //implement the function obv
 
-    //create ostObj
-    go = gameObject_new(game->current_scene);
-    audio_emitter_new(go, "resources/assets/audio/background.mp3", 1, MP3);
-    dont_destroy_on_load(go); //avoid destroying this obj since it reproduce the main ost
-    game->current_scene->started = true;
+    //CREATE AUDIO GAME_OBJ
+    // go = gameObject_new(game->current_scene, "audioEmitter");
+    // audio_emitter_new(go, filePath, 1, MP3);
+    // dont_destroy_on_load(go); //avoid destroying this obj since it reproduce the main ost
+    
+    
+    game->current_scene->started = true; //MUST SET THIS TO TRUE IN A SCENE INIT
 
     //when i've added all the sprites order them by z-index 
     //vector_quick(game->current_scene->draw_mgr->drawables, z_buffer); //TODO: this throws a stack-overflow ex :c 
-}
-
-void OnEnter(component* c){
-    printf("OnEnter");
-}
-void OnExit(component* c){
-    printf("OnExit");
-}
-
-void initGameScene(game* game){
-    //TEST PLAYER
-    gameObject* go = gameObject_new(game->current_scene);
-    sprite_new_animated(go, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
-    player_new(go, 200, 2, 4);
-    circle_collider_new(go, 0, OnEnter, NULL, OnExit);
-    circle_collider_set_collision(go, PLAYER_MASK, ENEMY_MASK);
-
-    //test enemy
-    vec2 v = vec2_new(300, 300);
-    go = gameObject_new_with_coord(game->current_scene, &v);
-    sprite_new_animated(go, "resources/assets/player/myplane_strip3.png", 1, 3, 0.1f);
-    enemy_new(go, HORIZONTAL, 50, 0, 1);
-    //player_new(player, 200, 2, 4); 
-    circle_collider_new(go, 0, OnEnter, NULL, OnExit);
-    circle_collider_set_collision(go, ENEMY_MASK, PLAYER_MASK);
-
-    v = vec2_new(0, 405);
-    go = gameObject_new_with_coord(game->current_scene, &v);
-    sprite_new(go, "resources/assets/ui/bottom.png", -2, 0, 0);
-
-    game->current_scene->started = true;
 }
 
 void update_events(game* game, SDL_Event* event){
@@ -179,11 +107,10 @@ void update_events(game* game, SDL_Event* event){
 
 void gameLoop(game* game){
 
-    scene* menu = scene_new(game, "main-menu", initMainMenu);
+    scene* menu = scene_new(game, "test-scene", init_test_scene);
 
-    scene* game_scene = scene_new(game, "game", initGameScene);
+    scene_set_active(menu); //set active scene
 
-    scene_set_active(menu);
     SDL_Event event;
     while(game->running){
         //if scene is going to chage
@@ -193,6 +120,7 @@ void gameLoop(game* game){
         //if the scene changed but isn't initialized
         if(game->current_scene->started == false){
             game->current_scene->init(game);
+            //here we could call all the component gameObjs init methods
         }
 
         update_events(game, &event);
@@ -201,12 +129,14 @@ void gameLoop(game* game){
         clear(game);
         update(game);
         draw(game);
+        //ACTIVATE TO DEBUG FPS (to-fix)
         // int fps = getFPS(game);
         // char title[100];
         // sprintf_s(title, sizeof(title), "PeepoEngine2D - Fps: %d", fps);
         // SDL_SetWindowTitle(game->__window, title);
     }
 
+    //free
     scene_destroy(game->current_scene);
     SDL_DestroyWindow(game->__window);
     SDL_DestroyRenderer(game->__renderer);
@@ -217,8 +147,8 @@ void gameLoop(game* game){
 void tick(game* game){
     game->__last_count = game->__curr_count;
     game->__curr_count = (int)SDL_GetPerformanceCounter();
-    game->__frequency = (int)SDL_GetPerformanceFrequency();
-    float dt = ((float)(game->__curr_count - game->__last_count) / (float)game->__frequency);
+    game->__frequency = (double)SDL_GetPerformanceFrequency();
+    double dt = (double)((game->__curr_count - game->__last_count) * 1000 / game->__frequency);
     // int fps = (int)(1.f / delta_time);
     game->delta_time = dt;
 }

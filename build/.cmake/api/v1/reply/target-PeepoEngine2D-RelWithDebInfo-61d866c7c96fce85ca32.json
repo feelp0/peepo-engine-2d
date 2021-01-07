@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Release/PeepoEngine2D.exe"
+			"path" : "RelWithDebInfo/PeepoEngine2D.exe"
 		},
 		{
-			"path" : "Release/PeepoEngine2D.pdb"
+			"path" : "RelWithDebInfo/PeepoEngine2D.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -52,7 +52,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD"
+					"fragment" : "/DWIN32 /D_WINDOWS /Zi /O2 /Ob1 /DNDEBUG -MD"
 				}
 			],
 			"includes" : 
@@ -83,7 +83,7 @@
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/include/game-behaviours"
+					"path" : "C:/Users/filip/Desktop/3AIV/peepo-engine2d/peepo-engine-2d/include/example-game-behaviours"
 				},
 				{
 					"backtrace" : 3,
@@ -108,7 +108,11 @@
 				12,
 				13,
 				14,
-				15
+				15,
+				16,
+				17,
+				18,
+				19
 			]
 		}
 	],
@@ -124,11 +128,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD",
+				"fragment" : "/DWIN32 /D_WINDOWS /Zi /O2 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /INCREMENTAL:NO /subsystem:console",
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
 				"role" : "flags"
 			},
 			{
@@ -186,12 +190,22 @@
 				12,
 				13,
 				14,
-				15
+				15,
+				16,
+				17,
+				18,
+				19
 			]
 		}
 	],
 	"sources" : 
 	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/common.c",
+			"sourceGroupIndex" : 0
+		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
@@ -231,13 +245,25 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/game-behaviours/enemyBehaviour.c",
+			"path" : "src/example-game-behaviours/bulletBehaviour.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/game-behaviours/playerBehaviour.c",
+			"path" : "src/example-game-behaviours/enemy-spawner.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/example-game-behaviours/enemyBehaviour.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/example-game-behaviours/playerBehaviour.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -274,6 +300,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/managers/physics_manager.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/queue.c",
 			"sourceGroupIndex" : 0
 		},
 		{

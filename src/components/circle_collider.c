@@ -1,7 +1,8 @@
 #include "circle_collider.h"
 #include "physics_manager.h"
 
-void circle_collider_new(gameObject* go, float radius, void (*onEnter)(struct component*), void (*onStay)(struct component*), void(*onExit)(struct component*)){
+void circle_collider_new(gameObject* go, float radius, void (*onEnter)(struct component*, struct component*), 
+                        void (*onStay)(struct component*, struct component*), void(*onExit)(struct component*,  struct component*)){
     circle_collider* cc = (circle_collider*)malloc(sizeof(circle_collider));
     cc->position = vec2_new(0, 0); //center of the object
     if(radius == 0){ //use sprite size
@@ -57,6 +58,7 @@ void circle_collider_on_enable(component* comp){
 void circle_collider_on_disable(component* comp){
     circle_collider* cc = (circle_collider*)comp->data;
     physics_mgr_remove_updatable(comp->owner->__scene->physics_mgr, cc);
+    vector_clear(cc->insideObjs);
     cc->__active = false;
 }
 
@@ -72,7 +74,7 @@ void __cc_add_colliding_obj(component* me, component* other){
     {
         component* c = (component*)vector_at(cc1->insideObjs, i);
         if(c == other){
-            if(cc1->onStay != NULL) cc1->onStay(c);
+            if(cc1->onStay != NULL) cc1->onStay(me, c);
             return;  
         } 
     }
@@ -80,12 +82,12 @@ void __cc_add_colliding_obj(component* me, component* other){
     vector_add(cc1->insideObjs, other);
     circle_collider* cc2 = (circle_collider*)other->data;
     physics_mgr_add_collision(me->owner->__scene->physics_mgr, cc1, cc2);
-    if(cc1->onEnter != NULL) cc1->onEnter(other);
+    if(cc1->onEnter != NULL) cc1->onEnter(me, other);
 }
 
 void __cc_remove_colliding_obj(component* me, component* other){
     circle_collider* cc1 = (circle_collider*)me->data;
     circle_collider* cc2 = (circle_collider*)other->data;
     vector_remove(cc1->insideObjs, other);
-    if(cc1->onExit != NULL) cc1->onExit(cc2->__collisionRef);
+    if(cc1->onExit != NULL) cc1->onExit(me, cc2->__collisionRef);
 }

@@ -36,12 +36,14 @@ void physics_mgr_update(physics_mgr* pm){
     int size = vector_size(pm->udatables);
     if(size <= 1) return;
     //check for new collision and call on stay if needed
-    for (uint i = 0; i < size; i++)
+    for (int i = size - 1; i >= 0; i--)
     {
         circle_collider* cc1 = (circle_collider*)vector_at(pm->udatables, i);
-        for (uint j = i + 1; j < size; j++)
+        if(cc1 == NULL) continue; //TODO:  remove  this!!!
+        for (int j = 0; j < i; j++)
         {
             circle_collider* cc2 = (circle_collider*)vector_at(pm->udatables, j);
+            if(cc2 == NULL) continue; //TODO:  remove  this!!!
             if(cc1 == cc2) continue;
             //printf("vector dist is %f\n", vector_dist);
             if(__check_circle_collision(cc1, cc2)){
@@ -50,7 +52,7 @@ void physics_mgr_update(physics_mgr* pm){
             }
         }
     }
-    
+
     //check state of existing collision
     physics_mgr_collisions_update(pm);
 }

@@ -85,6 +85,15 @@ void* vector_remove(vector* vec, void* item){
     return NULL;
 }
 
+void vector_clear(vector* vec){
+    uint size = (int)vector_size(vec);
+    if(size == 0) return;
+    for (int i = size - 1; i >= 0; i--)
+    {
+        vector_remove_at(vec, i);
+    }
+}
+
 void* vector_at(vector* vec, uint index){
     if(index >= vec->__count) return NULL;
     return vec->__items[index];

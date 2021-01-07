@@ -11,9 +11,9 @@ struct circle_collider{
     float radius;
     vec2 position;
     transform* __t;
-    void (*onEnter)(struct component*);
-    void (*onExit)(struct component*);
-    void (*onStay)(struct component*);
+    void (*onEnter)(struct component*, struct component*);
+    void (*onExit)(struct component*, struct component*);
+    void (*onStay)(struct component*, struct component*);
     boolean __active;
     vector* insideObjs;
     struct component* __collisionRef;
@@ -21,7 +21,8 @@ struct circle_collider{
     collision_mask colliding_mask;
 }; typedef struct circle_collider circle_collider;
 
-void circle_collider_new(gameObject* go,float radius, void (*onEnter)(struct component*), void (*onStay)(struct component*), void (*onExit)(struct component*));
+void circle_collider_new(gameObject* go,float radius, void (*onEnter)(struct component*, struct component*), 
+                        void (*onStay)(struct component*, struct component*), void (*onExit)(struct component*, struct component*));
 void circle_collider_set_collision(gameObject* go, collision_mask collider_mask, collision_mask colliding_mask);
 void circle_collider_init(component* comp);
 void circle_collider_update(component* comp);

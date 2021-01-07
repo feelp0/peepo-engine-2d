@@ -2,10 +2,10 @@
 #define TRANSFORM_COMP
 #include "gameObject.h"
 
-typedef struct{
+struct transform {
     vec2 pos;
     vec2 rot;
-}transform;
+}; typedef struct transform transform;
 
 transform* transform_new(gameObject* go);
 transform* transform_new_with_coord(gameObject* go, vec2 v);

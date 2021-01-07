@@ -43,8 +43,8 @@ foreach (_variableName ${_variableNames})
 endforeach()
 ]] 
 
-file(GLOB SOURCES "src/*.c" "src/components/*.c" "src/game-behaviours/*c" "src/managers/*c")
-file(GLOB HEADERS "include/*.h" "include/components/*.h" "include/game-behaviours/*c" "include/managers/*c")
+file(GLOB SOURCES "src/*.c" "src/components/*.c" "src/example-game-behaviours/*c" "src/managers/*c")
+file(GLOB HEADERS "include/*.h" "include/components/*.h" "include/example-game-behaviours/*c" "include/managers/*c")
 
 add_executable(PeepoEngine2D ${SOURCES} ${SOURCESCOMP})
 # link diretto sulla .lib
@@ -62,7 +62,7 @@ target_include_directories(PeepoEngine2D
     ${SDL2_MIXER_INCLUDE_DIR}  
     include
     include/components
-    include/game-behaviours
+    include/example-game-behaviours
     include/managers
 )
 

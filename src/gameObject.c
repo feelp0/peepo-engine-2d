@@ -1,18 +1,28 @@
 #include "gameObject.h"
+#include "components.h"
 
-gameObject* gameObject_new(scene* scene){
+gameObject* gameObject_new(scene* scene, const char* name){
     vec2 v = vec2_new(0, 0);
-    gameObject* go = gameObject_new_with_coord(scene, &v);
+    gameObject* go = gameObject_new_with_coord(scene, name, &v);
     return go;
 }
 
-gameObject* gameObject_new_with_coord(scene* scene, vec2* v){
+gameObject* gameObject_new_with_coord(scene* scene, const char* name, vec2* v){
     gameObject* go = (gameObject*)malloc(sizeof(gameObject));
     go->components = vector_new();
     go->__scene = scene;
     go->__dontDestroyOnLoad = false;
     go->__is_active = true;
-    transform_new_with_coord(go, *v);
+    
+    if(name==""){ // default name if ""
+        char defName[12];
+        int num = (int)vector_size(scene->gameObjects);
+        sprintf_s(defName, sizeof(defName), "gameObject%d", num);
+        name = defName;
+    }
+    go->name = name;
+
+    go->transform = transform_new_with_coord(go, *v);
     vector_add(go->__scene->gameObjects, go);
     return go;
 }

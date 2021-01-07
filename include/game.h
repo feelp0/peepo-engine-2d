@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "vec2.h"
 #include "vector.h"
+#include "queue.h"
 #include "common.h"
 //#include "gameObject.h"
 #include "scene.h"
@@ -14,9 +15,9 @@ struct game{
     int height;
     int __last_count;
     int __curr_count;
-    int __frequency;
+    double __frequency;
     int mouseState;
-    float delta_time;
+    double delta_time;
     vector* scenes;
     scene* current_scene;
     scene* next_scene;

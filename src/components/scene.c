@@ -84,13 +84,16 @@ void scene_change(scene* old_scene, scene* new_scene){
     scene_destroy(old_scene);
 }
 
-
-
-float delta_time(scene* scene){
-    return *scene->deltatime * scene->__timescale;;
+double delta_time_sec(scene* scene){
+    double dt = (*scene->deltatime * 0.001);
+    return dt;
 }
 
-float unscaled_delta_time(scene* scene){
+double delta_time(scene* scene){
+    return *scene->deltatime * scene->__timescale;
+}
+
+double unscaled_delta_time(scene* scene){
     return *scene->deltatime;
 }
 

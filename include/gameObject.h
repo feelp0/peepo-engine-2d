@@ -9,16 +9,20 @@ enum comp_type{
     BUTTON_T,
     PLAYER_T,
     ENEMY_T,
+    ENEMY_SPAWNER_T,
+    BULLET_T,
     TRANSFORM_T
 }; typedef enum comp_type component_type;
 
-typedef struct {
-    vec2 pos;
+struct transform;
+struct gameObject{
+    const char* name;
     vector* components;
     scene* __scene;
+    struct transform* transform;
     boolean __dontDestroyOnLoad;
     boolean __is_active;
-} gameObject;
+}; typedef struct gameObject gameObject;
 
 struct component{
     gameObject* owner;
@@ -31,9 +35,8 @@ struct component{
     void(*on_disable)(struct component*);
 } ; typedef struct component component;
 
-gameObject* gameObject_new(scene* scene);
-gameObject* gameObject_new_with_coord(scene* scene, vec2* pos);
-gameObject* gameObject_new_default(scene* scene);
+gameObject* gameObject_new(scene* scene, const char* name);
+gameObject* gameObject_new_with_coord(scene* scene, const char* name, vec2* pos);
 void gameObject_destroy(gameObject* go);
 void* gameObject_get_component(gameObject* go, component_type ct);
 void gameObject_update(gameObject* go);

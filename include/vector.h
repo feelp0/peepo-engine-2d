@@ -14,6 +14,7 @@ void vector_add(vector* vec, void* elem);
 void vector_add_at(vector* vec, void* elem, uint index);
 void* vector_remove_at(vector* vec, uint index);
 void* vector_remove(vector* vec, void* item);
+void vector_clear(vector* vec);
 uint vector_size(vector* vec);
 vector* vector_resize(vector* vec, uint size);
 void* vector_at(vector* vec, uint index);
