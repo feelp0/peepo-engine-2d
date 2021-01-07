@@ -7,7 +7,7 @@ Atm peepo-engine-2d have:
   -Single image or animation (from a sprite sheet) rendering;  
   -Scene managment;  
   -UI and UI events (atm OnPointerEnter, OnPointerExit, OnClick);  
-  -Colliders (only circle collider atm)(Normal and Trigger);  
+  -Colliders (only circle collider atm);  
   -Object collision (circle/circle only atm);  
   -Collision Events(OnEnter, OnStay, OnExit);  
   -Collider Collision Mask;  
